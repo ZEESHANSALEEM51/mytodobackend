@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
   const username = localStorage.getItem("username");
@@ -24,9 +25,47 @@ export default function Navbar() {
           Our<span className="text-yellow-300">Todo</span>App
         </Link>
 
+        {/* Hamburger Button (Mobile only) */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden block focus:outline-none"
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            {isOpen ? (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            ) : (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            )}
+          </svg>
+        </button>
+
         {/* Menu */}
-        <div className="flex items-center space-x-6 font-medium">
-          <Link to="/" className="hover:text-yellow-300 transition-colors duration-300">
+        <div
+          className={`${
+            isOpen ? "block" : "hidden"
+          } absolute md:static top-16 left-0 w-full md:w-auto bg-indigo-700 md:bg-transparent md:flex md:items-center md:space-x-6 font-medium`}
+        >
+          <Link
+            to="/"
+            className="block px-6 py-2 hover:text-yellow-300 transition-colors duration-300"
+            onClick={() => setIsOpen(false)}
+          >
             Home
           </Link>
 
@@ -34,16 +73,20 @@ export default function Navbar() {
             <>
               <Link
                 to="/tasks"
-                className="hover:text-yellow-300 transition-colors duration-300"
+                className="block px-6 py-2 hover:text-yellow-300 transition-colors duration-300"
+                onClick={() => setIsOpen(false)}
               >
                 Tasks
               </Link>
-              <span className="px-3 py-1 bg-white/20 rounded-lg text-yellow-300 font-semibold">
+              <span className="block px-6 py-2 bg-white/20 rounded-lg text-yellow-300 font-semibold">
                 {username}
               </span>
               <button
-                onClick={logout}
-                className="bg-red-500 px-4 py-2 rounded-lg shadow-md hover:bg-red-400 transition duration-300"
+                onClick={() => {
+                  logout();
+                  setIsOpen(false);
+                }}
+                className="block w-full md:w-auto text-left px-6 py-2 bg-red-500 rounded-lg shadow-md hover:bg-red-400 transition duration-300"
               >
                 Logout
               </button>
@@ -52,13 +95,15 @@ export default function Navbar() {
             <>
               <Link
                 to="/login"
-                className="hover:text-yellow-300 transition-colors duration-300"
+                className="block px-6 py-2 hover:text-yellow-300 transition-colors duration-300"
+                onClick={() => setIsOpen(false)}
               >
                 Login
               </Link>
               <Link
                 to="/signup"
-                className="bg-yellow-400 text-black px-4 py-2 rounded-lg shadow-md hover:bg-yellow-300 transition duration-300"
+                className="block px-6 py-2 bg-yellow-400 text-black rounded-lg shadow-md hover:bg-yellow-300 transition duration-300"
+                onClick={() => setIsOpen(false)}
               >
                 Signup
               </Link>
