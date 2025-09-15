@@ -15,13 +15,13 @@ function Footer() {
 
         {/* Right (Social Links) */}
         <div className="flex space-x-4 mt-3 md:mt-0">
-          <a href="https://github.com/" target="_blank" rel="noreferrer" className="hover:text-yellow-300 transition-colors">
+          <a href="https://github.com/ZEESHANSALEEM51/mytodobackend/" target="_blank" rel="noreferrer" className="hover:text-yellow-300 transition-colors">
             <i className="fab fa-github text-lg"></i>
           </a>
           <a href="https://twitter.com/" target="_blank" rel="noreferrer" className="hover:text-yellow-300 transition-colors">
             <i className="fab fa-twitter text-lg"></i>
           </a>
-          <a href="https://linkedin.com/" target="_blank" rel="noreferrer" className="hover:text-yellow-300 transition-colors">
+          <a href="www.linkedin.com/in/zeeshan-saleem-9b4601349/" target="_blank" rel="noreferrer" className="hover:text-yellow-300 transition-colors">
             <i className="fab fa-linkedin text-lg"></i>
           </a>
         </div>
