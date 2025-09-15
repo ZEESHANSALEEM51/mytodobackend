@@ -21,7 +21,7 @@ export default function Navbar() {
           to="/"
           className="text-2xl md:text-3xl font-extrabold tracking-wide hover:scale-105 transition-transform duration-300"
         >
-          My<span className="text-yellow-300">Todo</span>App
+          Our<span className="text-yellow-300">Todo</span>App
         </Link>
 
         {/* Menu */}

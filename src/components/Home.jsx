@@ -15,7 +15,7 @@ function Home() {
         {/* max-w hata diya taki side gap na aaye */}
         
         <h1 className="text-5xl font-extrabold text-white drop-shadow-lg mb-6">
-          Welcome to <span className="text-yellow-300">MyTodoApp</span>
+          Welcome to <span className="text-yellow-300">OurTodoApp</span>
         </h1>
 
         <p className="text-lg md:text-xl text-gray-100 mb-10 leading-relaxed">
